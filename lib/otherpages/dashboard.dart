@@ -1,4 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:test2/Dashboardwidgets/alerts.dart';
+import 'package:test2/Dashboardwidgets/charts.dart';
+import 'package:test2/Dashboardwidgets/cloud.dart';
+import 'package:test2/Dashboardwidgets/devices.dart';
+import 'package:test2/Dashboardwidgets/forecast.dart';
+import 'package:test2/Dashboardwidgets/help.dart';
+import 'package:test2/Dashboardwidgets/historical.dart';
+import 'package:test2/Dashboardwidgets/home.dart';
+import 'package:test2/Dashboardwidgets/live.dart';
+import 'package:test2/Dashboardwidgets/location.dart';
+import 'package:test2/Dashboardwidgets/report.dart';
+import 'package:test2/Dashboardwidgets/settings.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -9,15 +21,43 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   int _selectedIndex = 0;
+  late Widget page;
   @override
   void initState() {
     // Scaffold.of(context).openDrawer();
     super.initState();
+    page = DashboardHomeWidget();
   }
 
   void changeDestination(int index) {
     setState(() {
       _selectedIndex = index;
+      switch (_selectedIndex) {
+        case 0:
+          page = DashboardHomeWidget();
+        case 1:
+          page = DashboardLiveWidget();
+        case 2:
+          page = LocationWidget();
+        case 3:
+          page = HistoricalWidget();
+        case 4:
+          page = ForecastWidget();
+        case 5:
+          page = Alerts();
+        case 6:
+          page = Charts();
+        case 7:
+          page = ReportWidget();
+        case 8:
+          page = DevicesWidget();
+        case 9:
+          page = Settings();
+        case 10:
+          page = HelpWidget();
+        case 11:
+          page = CloudWidget();
+      }
     });
   }
 
@@ -29,6 +69,11 @@ class _DashboardState extends State<Dashboard> {
         child: Row(
           children: <Widget>[
             navigationRailDashboard(),
+            Expanded(
+                child: Container(
+              color: Color(0xffEDE8F1),
+              child: page,
+            ))
           ],
         ),
       ),

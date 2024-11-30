@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test2/otherpages/dashboard.dart';
 import 'package:test2/otherpages/homepagetest.dart';
+import 'package:test2/otherpages/signup.dart';
 
 void main() => runApp(const MyApp());
 
