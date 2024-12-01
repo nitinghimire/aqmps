@@ -44,6 +44,9 @@ dependencies:
   flutter_bloc: ^8.1.6
   cloud_firestore: ^5.4.5
   provider: ^6.1.2
+  # for mapbox:
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
 
 dev_dependencies:
   flutter_test:
