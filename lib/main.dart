@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           tabBarTheme: TabBarTheme(
             indicatorSize: TabBarIndicatorSize.label,
           )),
-      home: Dashboard(),
+      home: const Dashboard(),
     );
   }
 }
